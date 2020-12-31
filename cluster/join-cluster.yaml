@@ -1,0 +1,14 @@
+apiVersion: kubeadm.k8s.io/v1beta2
+kind: JoinConfiguration
+nodeRegistration:
+  criSocket: /run/containerd/containerd.sock
+discovery:
+  bootstrapToken:
+    apiServerEndpoint: aqui -> manager IP:PUERTO
+    token: aqui -> manager token
+    caCertHashes:
+    - aqui -> manager discovery-token-ca-cert-hash 
+---
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+cgroupDriver: systemd
